@@ -19,17 +19,17 @@ pipeline {
         }
         stage('tfsvars create'){
             steps {
-                sh 'sudo cp /home/ubuntu/vars.tf ./jenkins/'
+                sh 'sudo cp /home/ubuntu/jenkins/vars.tf ./jenkins/'
             }
         }
         stage('terraform init') {
             steps {
-                sh 'sudo /home/ubuntu/terraform init ./jenkins'
+                sh 'sudo /home/ubuntu/jenkins/terraform init ./jenkins'
             }
         }
         stage('terraform plan') {
             steps {
-                sh 'ls ./jenkins; sudo /home/ubuntu/terraform plan ./jenkins'
+                sh 'ls ./jenkins; sudo /home/ubuntu/jenkins/terraform plan ./jenkins'
             }
         }
         stage('terraform ended') {
